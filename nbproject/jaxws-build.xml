@@ -152,5 +152,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/WSVentas"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/clienteVentas"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSCliente, wsimport-client-WSBoleta, wsimport-client-WSDetalle, wsimport-client-WSEstadoCivil, wsimport-client-WSProducto, wsimport-client-WSSubTipo, wsimport-client-WSTipo, wsimport-client-WSVentas"/>
+    <target name="wsimport-client-WSCliente_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
+        <property name="wsdl-WSCliente_1" location="xml-resources/web-service-references/WSCliente_1/wsdl/localhost_8080/WSAlimentos/WSCliente.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSCliente_1" destdir="${build.generated.dir}/jax-wsCache/WSCliente_1" wsdl="${wsdl-WSCliente_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSCliente?WSDL" xnocompile="true" xendorsed="true" package="WS">
+            <depends file="${wsdl-WSCliente_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSCliente_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSCliente_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/WS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSCliente, wsimport-client-WSBoleta, wsimport-client-WSDetalle, wsimport-client-WSEstadoCivil, wsimport-client-WSProducto, wsimport-client-WSSubTipo, wsimport-client-WSTipo, wsimport-client-WSVentas, wsimport-client-WSCliente_1"/>
 </project>

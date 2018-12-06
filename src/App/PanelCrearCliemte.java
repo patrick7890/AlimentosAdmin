@@ -5,6 +5,9 @@
  */
 package App;
 
+import clienteCli.Cliente;
+import clienteEC.EstadoCivil;
+
 /**
  *
  * @author Lennon
@@ -32,7 +35,7 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtRut = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDV = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -72,6 +75,11 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
         cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,7 +104,7 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtNombre)
                                 .addComponent(txtApellido))
                             .addGroup(layout.createSequentialGroup()
@@ -122,7 +130,7 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -150,6 +158,29 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void init(){
+        clienteEC.FindAllEstadoCivilResponse c = new clienteEC.FindAllEstadoCivilResponse();
+        
+        for (clienteEC.EstadoCivil object : c.getReturn()) {
+            cboEstadoCivil.add(object.getDescripcionEstadoCivil(), this);
+        }
+       
+    }
+    
+    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        clienteCli.Cliente c = new Cliente();
+        
+        c.setNombreCliente(txtNombre.toString());
+        c.setApellidoCliente(txtApellido.toString());
+        c.setRut(Integer.parseInt(txtRut.toString()));
+        c.setDv(txtDV.toString());
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -165,10 +196,23 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtDV;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRut;
     // End of variables declaration//GEN-END:variables
+
+   
+    private static boolean createCliente(clienteCli.Cliente entity) {
+        clienteCli.WSCliente_Service service = new clienteCli.WSCliente_Service();
+        clienteCli.WSCliente port = service.getWSClientePort();
+        return port.createCliente(entity);
+    }
+
+    private static java.util.List<clienteEC.EstadoCivil> findAllEstadoCivil() {
+        clienteEC.WSEstadoCivil_Service service = new clienteEC.WSEstadoCivil_Service();
+        clienteEC.WSEstadoCivil port = service.getWSEstadoCivilPort();
+        return port.findAllEstadoCivil();
+    }
 }
