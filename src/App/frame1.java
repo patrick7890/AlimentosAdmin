@@ -118,14 +118,14 @@ public class frame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuCrearActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        panelPrueba p = new panelPrueba();
+        PanelModificarCliente p = new PanelModificarCliente();
         cambiarPanel(p);
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void menuEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarClienteActionPerformed
-        // cambiarPanel(EliminarCliente);
-
+        PanelEliminarCliente p = new PanelEliminarCliente();
+        cambiarPanel(p);
     }//GEN-LAST:event_menuEliminarClienteActionPerformed
 
     /**
