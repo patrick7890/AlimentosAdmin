@@ -169,5 +169,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/WS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSCliente, wsimport-client-WSBoleta, wsimport-client-WSDetalle, wsimport-client-WSEstadoCivil, wsimport-client-WSProducto, wsimport-client-WSSubTipo, wsimport-client-WSTipo, wsimport-client-WSVentas, wsimport-client-WSCliente_1"/>
+    <target name="wsimport-client-WSEstadoCivil_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1"/>
+        <property name="wsdl-WSEstadoCivil_1" location="xml-resources/web-service-references/WSEstadoCivil_1/wsdl/localhost_8080/WSAlimentos/WSEstadoCivil.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1" destdir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1" wsdl="${wsdl-WSEstadoCivil_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSEstadoCivil?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-WSEstadoCivil_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSEstadoCivil_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/service"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSCliente, wsimport-client-WSBoleta, wsimport-client-WSDetalle, wsimport-client-WSEstadoCivil, wsimport-client-WSProducto, wsimport-client-WSSubTipo, wsimport-client-WSTipo, wsimport-client-WSVentas, wsimport-client-WSCliente_1, wsimport-client-WSEstadoCivil_1"/>
 </project>
