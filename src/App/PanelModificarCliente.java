@@ -5,17 +5,48 @@
  */
 package App;
 
+import clienteCli.Cliente;
+import clienteEC.EstadoCivil;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lennon
  */
 public class PanelModificarCliente extends javax.swing.JPanel {
 
+    clienteCli.Cliente c = new Cliente();
+
     /**
      * Creates new form PanelModificarCliente
      */
     public PanelModificarCliente() {
+        //btnModificar.setVisible(false);
+
         initComponents();
+        init();
+        btnEliminar.setVisible(false);
+
+    }
+
+    public void init() {
+
+//        try {
+//            cboEstadoCivil.removeAllItems();
+//            int count = countEstadoCivil();
+//            if (count > 0) {
+//                for (int i = 0; i <= count; i++) {
+//                    EstadoCivil es = findEstadoCivil(i + 1);
+//                    this.cboEstadoCivil.addItem(es.getDescripcionEstadoCivil());
+//                }
+//            }
+//        } catch (Exception e) {
+//        }
+        cboEstadoCivil.removeAllItems();
+        for (EstadoCivil estadoCivil : findAllEstadoCivil()) {
+            this.cboEstadoCivil.addItem(estadoCivil.getDescripcionEstadoCivil());
+        }
+
     }
 
     /**
@@ -27,8 +58,9 @@ public class PanelModificarCliente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDV = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -38,13 +70,14 @@ public class PanelModificarCliente extends javax.swing.JPanel {
         btnModificar = new javax.swing.JButton();
         txtApellido = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        rb = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rb1 = new javax.swing.JRadioButton();
         txtRut = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Modificar Cliente");
@@ -53,11 +86,10 @@ public class PanelModificarCliente extends javax.swing.JPanel {
 
         jLabel8.setText("Estado Civil  :");
 
-        cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel5.setText("Apellido  :");
 
         btnModificar.setText("Modificar");
+        btnModificar.setEnabled(false);
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -66,17 +98,31 @@ public class PanelModificarCliente extends javax.swing.JPanel {
 
         jLabel6.setText("Sexo  :");
 
-        jRadioButton1.setText("Masculino");
+        buttonGroup1.add(rb);
+        rb.setText("Masculino");
 
         jLabel2.setText("Rut  :");
 
-        jRadioButton2.setText("Femenino");
+        buttonGroup1.add(rb1);
+        rb1.setText("Femenino");
 
         jLabel3.setText("-");
 
         jLabel7.setText("Edad  :");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,21 +147,25 @@ public class PanelModificarCliente extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtNombre)
                                 .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton2))
+                                .addComponent(rb1))
                             .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addComponent(btnBuscar)
                 .addContainerGap(56, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEliminar)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +177,7 @@ public class PanelModificarCliente extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -140,8 +190,8 @@ public class PanelModificarCliente extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rb)
+                    .addComponent(rb1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -150,20 +200,106 @@ public class PanelModificarCliente extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addGap(19, 19, 19)
+                .addComponent(btnEliminar)
+                .addGap(14, 14, 14)
                 .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        try {
 
+            c.setNombreCliente(txtNombre.getText());
+            c.setApellidoCliente(txtApellido.getText());
+            c.setRut(Integer.parseInt(txtRut.getText()));
+            c.setDv(txtDV.getText());
+            if (rb.isSelected()) {
+                c.setSexo(true);
+            }
+            if (rb1.isSelected()) {
+                c.setSexo(false);
+            }
+            int estaC = (cboEstadoCivil.getSelectedIndex() + 1);
+            String estaC2 = "" + estaC;
+
+            clienteCli.EstadoCivil e = new clienteCli.EstadoCivil();
+            e.setIdEstadoCivil(Short.parseShort(estaC2));
+            e.setDescripcionEstadoCivil(cboEstadoCivil.getSelectedItem().toString());
+            c.setEstadoCivilIdEstadoCivil(e);
+            c.setActivoC(true);
+
+            c.setEdadCliente(Short.parseShort(txtEdad.getText()));
+            if (editCliente(c)) {
+
+                JOptionPane.showMessageDialog(null, "Modifico");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "NO Modifico");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        try {
+
+            c = findCliente(Integer.parseInt(txtRut.getText()), txtDV.getText());
+
+            txtNombre.setText(c.getNombreCliente());
+            txtApellido.setText(c.getApellidoCliente());
+            txtEdad.setText("" + c.getEdadCliente());
+            boolean sexo = c.isSexo();
+            if (sexo) {
+                rb.setSelected(true);
+            } else {
+                rb1.setSelected(true);
+            }
+
+            short estado = c.getEstadoCivilIdEstadoCivil().getIdEstadoCivil();
+            cboEstadoCivil.setSelectedIndex(estado - 1);
+            btnModificar.setEnabled(true);
+
+            if (c.isActivoC()) {
+                btnEliminar.setText("Deshabilitar");
+            } else {
+                btnEliminar.setText("Activar");
+            }
+
+            btnEliminar.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se Pudo encontrar");
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            if (c.isActivoC()) {
+                c.setActivoC(false);
+                if (editCliente(c)) {
+                    JOptionPane.showMessageDialog(null, "Cliente Eliminado");
+                }
+                btnEliminar.setText("Activar");
+            } else {
+                c.setActivoC(true);
+                if (editCliente(c)) {
+                    JOptionPane.showMessageDialog(null, "Cliente Activado");
+                }
+                btnEliminar.setText("Deshabilitar");
+            }
+
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboEstadoCivil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -173,12 +309,43 @@ public class PanelModificarCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButton rb;
+    private javax.swing.JRadioButton rb1;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtDV;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRut;
     // End of variables declaration//GEN-END:variables
+
+    private static Cliente findCliente(int rut, java.lang.String dv) {
+        clienteCli.WSCliente_Service service = new clienteCli.WSCliente_Service();
+        clienteCli.WSCliente port = service.getWSClientePort();
+        return port.findCliente(rut, dv);
+    }
+
+    private static boolean editCliente(clienteCli.Cliente entity) {
+        clienteCli.WSCliente_Service service = new clienteCli.WSCliente_Service();
+        clienteCli.WSCliente port = service.getWSClientePort();
+        return port.editCliente(entity);
+    }
+
+    private static int countEstadoCivil() {
+        clienteEC.WSEstadoCivil_Service service = new clienteEC.WSEstadoCivil_Service();
+        clienteEC.WSEstadoCivil port = service.getWSEstadoCivilPort();
+        return port.countEstadoCivil();
+    }
+
+    private static EstadoCivil findEstadoCivil(int id) {
+        clienteEC.WSEstadoCivil_Service service = new clienteEC.WSEstadoCivil_Service();
+        clienteEC.WSEstadoCivil port = service.getWSEstadoCivilPort();
+        return port.findEstadoCivil(id);
+    }
+
+    private static java.util.List<clienteEC.EstadoCivil> findAllEstadoCivil() {
+        clienteEC.WSEstadoCivil_Service service = new clienteEC.WSEstadoCivil_Service();
+        clienteEC.WSEstadoCivil port = service.getWSEstadoCivilPort();
+        return port.findAllEstadoCivil();
+    }
+
 }

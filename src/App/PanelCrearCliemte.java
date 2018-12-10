@@ -78,8 +78,6 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
 
         jLabel8.setText("Estado Civil  :");
 
-        cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,35 +180,36 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        // try {
-        clienteCli.Cliente c = new clienteCli.Cliente();
+        try {
+            clienteCli.Cliente c = new clienteCli.Cliente();
 
-        c.setNombreCliente(txtNombre.getText());
-        c.setApellidoCliente(txtApellido.getText());
-        c.setRut(Integer.parseInt(txtRut.getText()));
-        c.setDv(txtDV.getText());
-        if (rbM.isSelected()) {
-            c.setSexo(1);
-        }
-        if (rbF.isSelected()) {
-            c.setSexo(2);
-        }
+            c.setNombreCliente(txtNombre.getText());
+            c.setApellidoCliente(txtApellido.getText());
+            c.setRut(Integer.parseInt(txtRut.getText()));
+            c.setDv(txtDV.getText());
+            if (rbM.isSelected()) {
+                c.setSexo(true);
+            }
+            if (rbF.isSelected()) {
+                c.setSexo(false);
+            }
+            int estaC = (cboEstadoCivil.getSelectedIndex() + 1);
+            String estaC2 = "" + estaC;
 
-        clienteCli.EstadoCivil e = new clienteCli.EstadoCivil();
-        e.setIdEstadoCivil(cboEstadoCivil.getSelectedIndex() + 1);
-        e.setDescripcionEstadoCivil(cboEstadoCivil.getSelectedItem().toString());
-        c.setEstadoCivilIdEstadoCivil(e);
-        c.setActivoC(1);
-        c.setEdadCliente(Integer.parseInt(txtEdad.getText()));
-        if (createCliente(c)) {
-             JOptionPane.showMessageDialog(null, c.getEdadCliente());
-            JOptionPane.showMessageDialog(null, "agrego");
-        } else {
-            JOptionPane.showMessageDialog(null, "NO agrego");
-        }
+            clienteCli.EstadoCivil e = new clienteCli.EstadoCivil();
+            e.setIdEstadoCivil(Short.parseShort(estaC2));
+            e.setDescripcionEstadoCivil(cboEstadoCivil.getSelectedItem().toString());
+            c.setEstadoCivilIdEstadoCivil(e);
+            c.setActivoC(true);
 
-//        } catch (Exception e) {
-//        }
+            c.setEdadCliente(Short.parseShort(txtEdad.getText()));
+            if (createCliente(c)) {
+                JOptionPane.showMessageDialog(null, "Agrego");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "NO Agrego");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
