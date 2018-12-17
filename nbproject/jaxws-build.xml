@@ -152,5 +152,158 @@
         <delete dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/clienteEC"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSBoleta, wsimport-client-WSDetalle, wsimport-client-WSProducto, wsimport-client-WSSubTipo, wsimport-client-WSTipo, wsimport-client-WSVentas, wsimport-client-WSCliente, wsimport-client-WSEstadoCivil"/>
+    <target name="wsimport-client-WSSubTipo_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSSubTipo_1"/>
+        <property name="wsdl-WSSubTipo_1" location="xml-resources/web-service-references/WSSubTipo_1/wsdl/localhost_8080/WSAlimentos/WSSubTipo.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSSubTipo_1" destdir="${build.generated.dir}/jax-wsCache/WSSubTipo_1" wsdl="${wsdl-WSSubTipo_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSSubTipo?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-WSSubTipo_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSSubTipo_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSSubTipo_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSSubTipo_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSSubTipo_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/service"/>
+    </target>
+    <target name="wsimport-client-WSTipo_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSTipo_1"/>
+        <property name="wsdl-WSTipo_1" location="xml-resources/web-service-references/WSTipo_1/wsdl/localhost_8080/WSAlimentos/WSTipo.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSTipo_1" destdir="${build.generated.dir}/jax-wsCache/WSTipo_1" wsdl="${wsdl-WSTipo_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSTipo?wsdl" xnocompile="true" xendorsed="true" package="tipoPro">
+            <depends file="${wsdl-WSTipo_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSTipo_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSTipo_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSTipo_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSTipo_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/tipoPro"/>
+    </target>
+    <target name="wsimport-client-WSTipo_2" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSTipo_2"/>
+        <property name="wsdl-WSTipo_2" location="xml-resources/web-service-references/WSTipo_2/wsdl/localhost_8080/WSAlimentos/WSTipo.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSTipo_2" destdir="${build.generated.dir}/jax-wsCache/WSTipo_2" wsdl="${wsdl-WSTipo_2}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSTipo?wsdl" xnocompile="true" xendorsed="true" package="clienteTipo">
+            <depends file="${wsdl-WSTipo_2}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSTipo_2"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSTipo_2">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSTipo_2" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSTipo_2"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clienteTipo"/>
+    </target>
+    <target name="wsimport-client-WSCliente_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
+        <property name="wsdl-WSCliente_1" location="xml-resources/web-service-references/WSCliente_1/wsdl/localhost_8080/WSAlimentos/WSCliente.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSCliente_1" destdir="${build.generated.dir}/jax-wsCache/WSCliente_1" wsdl="${wsdl-WSCliente_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSCliente?wsdl" xnocompile="true" xendorsed="true" package="clienteCli">
+            <depends file="${wsdl-WSCliente_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSCliente_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSCliente_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSCliente_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clienteCli"/>
+    </target>
+    <target name="wsimport-client-WSEstadoCivil_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1"/>
+        <property name="wsdl-WSEstadoCivil_1" location="xml-resources/web-service-references/WSEstadoCivil_1/wsdl/localhost_8080/WSAlimentos/WSEstadoCivil.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1" destdir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1" wsdl="${wsdl-WSEstadoCivil_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSEstadoCivil?wsdl" xnocompile="true" xendorsed="true" package="clienteEC">
+            <depends file="${wsdl-WSEstadoCivil_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSEstadoCivil_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSEstadoCivil_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clienteEC"/>
+    </target>
+    <target name="wsimport-client-WSTipo_3" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSTipo_3"/>
+        <property name="wsdl-WSTipo_3" location="xml-resources/web-service-references/WSTipo_3/wsdl/localhost_8080/WSAlimentos/WSTipo.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSTipo_3" destdir="${build.generated.dir}/jax-wsCache/WSTipo_3" wsdl="${wsdl-WSTipo_3}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSTipo?wsdl" xnocompile="true" xendorsed="true" package="clienteTipo">
+            <depends file="${wsdl-WSTipo_3}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSTipo_3"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSTipo_3">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSTipo_3" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSTipo_3"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clienteTipo"/>
+    </target>
+    <target name="wsimport-client-WSSubTipo_2" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSSubTipo_2"/>
+        <property name="wsdl-WSSubTipo_2" location="xml-resources/web-service-references/WSSubTipo_2/wsdl/localhost_8080/WSAlimentos/WSSubTipo.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSSubTipo_2" destdir="${build.generated.dir}/jax-wsCache/WSSubTipo_2" wsdl="${wsdl-WSSubTipo_2}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSSubTipo?wsdl" xnocompile="true" xendorsed="true" package="clienteSubTipo">
+            <depends file="${wsdl-WSSubTipo_2}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSSubTipo_2"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSSubTipo_2">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSSubTipo_2" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSSubTipo_2"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clienteSubTipo"/>
+    </target>
+    <target name="wsimport-client-WSProducto_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSProducto_1"/>
+        <property name="wsdl-WSProducto_1" location="xml-resources/web-service-references/WSProducto_1/wsdl/localhost_8080/WSAlimentos/WSProducto.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSProducto_1" destdir="${build.generated.dir}/jax-wsCache/WSProducto_1" wsdl="${wsdl-WSProducto_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSProducto?wsdl" xnocompile="true" xendorsed="true" package="clientePro">
+            <depends file="${wsdl-WSProducto_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSProducto_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSProducto_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSProducto_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSProducto_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clientePro"/>
+    </target>
+    <target name="wsimport-client-WSProducto_2" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSProducto_2"/>
+        <property name="wsdl-WSProducto_2" location="xml-resources/web-service-references/WSProducto_2/wsdl/localhost_8080/WSAlimentos/WSProducto.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSProducto_2" destdir="${build.generated.dir}/jax-wsCache/WSProducto_2" wsdl="${wsdl-WSProducto_2}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSAlimentos/WSProducto?wsdl" xnocompile="true" xendorsed="true" package="clienteProducto">
+            <depends file="${wsdl-WSProducto_2}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSProducto_2"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSProducto_2">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSProducto_2" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WSProducto_2"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/clienteProducto"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSBoleta, wsimport-client-WSDetalle, wsimport-client-WSProducto, wsimport-client-WSSubTipo, wsimport-client-WSTipo, wsimport-client-WSVentas, wsimport-client-WSCliente, wsimport-client-WSEstadoCivil, wsimport-client-WSSubTipo_1, wsimport-client-WSTipo_1, wsimport-client-WSTipo_2, wsimport-client-WSCliente_1, wsimport-client-WSEstadoCivil_1, wsimport-client-WSTipo_3, wsimport-client-WSSubTipo_2, wsimport-client-WSProducto_1, wsimport-client-WSProducto_2"/>
 </project>
