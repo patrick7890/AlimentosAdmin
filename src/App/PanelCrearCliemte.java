@@ -25,6 +25,13 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
     public PanelCrearCliemte() {
         initComponents();
         init();
+        
+        validacion1.setVisible(false);
+        validacion2.setVisible(false);
+        validacion3.setVisible(false);
+        validacion4.setVisible(false);
+        validacion5.setVisible(false);
+        
     }
 
     /**
@@ -54,6 +61,11 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         cboEstadoCivil = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        validacion1 = new javax.swing.JLabel();
+        validacion2 = new javax.swing.JLabel();
+        validacion3 = new javax.swing.JLabel();
+        validacion4 = new javax.swing.JLabel();
+        validacion5 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Crear Cliente");
@@ -85,6 +97,21 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
             }
         });
 
+        validacion1.setForeground(new java.awt.Color(255, 0, 0));
+        validacion1.setText("Campo Oblifatorio");
+
+        validacion2.setForeground(new java.awt.Color(255, 0, 0));
+        validacion2.setText("Campo Oblifatorio");
+
+        validacion3.setForeground(new java.awt.Color(255, 0, 0));
+        validacion3.setText("Campo Oblifatorio");
+
+        validacion4.setForeground(new java.awt.Color(204, 0, 0));
+        validacion4.setText("Campo Oblifatorio");
+
+        validacion5.setForeground(new java.awt.Color(204, 0, 0));
+        validacion5.setText("Campo Oblifatorio");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,7 +119,7 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
@@ -102,27 +129,36 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtNombre)
-                                .addComponent(txtApellido))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNombre)
+                                    .addComponent(txtApellido))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(validacion1)
+                                    .addComponent(validacion2)
+                                    .addComponent(validacion3)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(rbM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtEdad))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbF))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbF)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(validacion4))
+                                    .addComponent(validacion5)))
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,24 +170,29 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validacion1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validacion2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validacion3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(rbM)
-                    .addComponent(rbF))
+                    .addComponent(rbF)
+                    .addComponent(validacion4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validacion5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -181,6 +222,8 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
+            if(valida()){
+             
             clienteCli.Cliente c = new clienteCli.Cliente();
 
             c.setNombreCliente(txtNombre.getText());
@@ -201,12 +244,17 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
             e.setDescripcionEstadoCivil(cboEstadoCivil.getSelectedItem().toString());
             c.setEstadoCivilIdEstadoCivil(e);
             c.setActivoC(true);
-
-            c.setEdadCliente(Short.parseShort(txtEdad.getText()));
+            
+            int ed = Integer.parseInt( txtEdad.getText());
+            if(ed < 18 ){JOptionPane.showMessageDialog(null, "La edad debe ser mayor o igual a 18");return;}else{
+                c.setEdadCliente(Short.parseShort(txtEdad.getText()));
+                
+            }
+            
             if (createCliente(c)) {
                 JOptionPane.showMessageDialog(null, "Agrego");
             }
-
+}
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO Agrego");
         }
@@ -232,6 +280,11 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRut;
+    private javax.swing.JLabel validacion1;
+    private javax.swing.JLabel validacion2;
+    private javax.swing.JLabel validacion3;
+    private javax.swing.JLabel validacion4;
+    private javax.swing.JLabel validacion5;
     // End of variables declaration//GEN-END:variables
 
     private static boolean createCliente(clienteCli.Cliente entity) {
@@ -256,6 +309,17 @@ public class PanelCrearCliemte extends javax.swing.JPanel {
         clienteEC.WSEstadoCivil_Service service = new clienteEC.WSEstadoCivil_Service();
         clienteEC.WSEstadoCivil port = service.getWSEstadoCivilPort();
         return port.countEstadoCivil();
+    }
+
+    private boolean valida() {
+        boolean v = true;
+        if(txtRut.getText().equals("") && txtDV.getText().equals("")){validacion1.setVisible(true);v=false;}else{validacion1.setVisible(false); }
+        if(txtNombre.getText().equals("")){validacion2.setVisible(true);v=false;}else{validacion2.setVisible(false); }
+        if(txtApellido.getText().equals("")){validacion3.setVisible(true);v=false;}else{validacion3.setVisible(false); }
+        if(rbF.isSelected()|| rbM.isSelected()){validacion4.setVisible(false);}else{validacion4.setVisible(true);v=false; }
+        if(txtEdad.getText().equals("")){validacion5.setVisible(true);v=false;}else{validacion5.setVisible(false); }
+        
+        return v;
     }
 
 }
